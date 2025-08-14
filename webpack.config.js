@@ -1,38 +1,39 @@
-// webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production", // change to 'production' for hosting
   entry: "./src/index.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/todo-list/", // matches your GitHub Pages repo
     clean: true,
   },
-  devtool: "eval-source-map",
-  devServer: {
-    watchFiles: ["./src/template.html"],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template.html",
-    }),
-  ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"], // extract CSS
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: "html-loader", // handles template.html imports
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource", // handle images if any
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+      filename: "index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "style.css",
+    }),
+  ],
 };

@@ -1,5 +1,5 @@
 
-// index.js
+// index.js (entry point)
 import './style.css';
 import Todo from './todo';
 import Project from './project';
