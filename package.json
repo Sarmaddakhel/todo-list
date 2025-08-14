@@ -1,0 +1,30 @@
+{
+  "name": "todo-webpack-project",
+  "version": "1.0.0",
+  "description": "Todo project with full Webpack setup",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "Sarmad",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^6.11.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarmaddakhel/todo-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sarmaddakhel/todo-list/issues"
+  },
+  "homepage": "https://github.com/Sarmaddakhel/todo-list#readme"
+}
